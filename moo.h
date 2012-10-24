@@ -3,7 +3,7 @@
 #define MOO_C_H
 
 // ------------------------------------------------------------
-// ---- moo.h - v1.0.1 ----------------------------------------
+// ---- moo.h - v1.1.1 ----------------------------------------
 // ------------------------------------------------------------
 // ---- MACROS for OBJECT ORIENTED-ness ( in C ) --------------
 // ------------------------------------------------------------
@@ -11,7 +11,7 @@
 // ------------------------------------------------------------
 // Author: Jason Cox
 // Email: contact@jasonbcox.com
-// Date of Last Change: 2012-2-22
+// Date of Last Change: 2012-10-23
 // ------------------------------------------------------------
 
 // ------------------------------------------------------------
@@ -50,6 +50,9 @@
 //		* Finished built-in type: MOO_LIST_DEF
 // 2012-2-22 v1.0.1
 //		* Added documentation
+// 2012-10-23 v1.1.1
+//		* Added STRUCT_END per the suggestion of Kenneth Perry,
+//			as the non-matching brackets messed with some IDEs.
 // ------------------------------------------------------------
 
 
@@ -104,10 +107,10 @@ do {								\
 // Define a new moo-based struct
 // How to use STRUCT_DEF:
 /*
-	STRUCT_DEF( my_struct ) //{		<- Do NOT put this bracket here (it is already part of the macro)
+	STRUCT_DEF( my_struct )
 		int value;					<- Any member variables you want
 		void (*func)(void);			<- Any member functions you want
-	};								<- Don't forget the ';' at the end of the struct definition
+	STRUCT_END
 	
 	void my_struct_func() {
 		my_struct * this;			<- Make sure to define 'this' before using it
@@ -131,6 +134,8 @@ do {								\
 	struct _##S {																	\
 		S * (*_call)( S * );
 // end of STRUCT_DEF
+
+#define STRUCT_END };
 
 // Defines the variable 'this' in a moo-based struct's member function code
 // It is smart to put this at the top of all member functions because it also checks to make sure
