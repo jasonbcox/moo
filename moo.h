@@ -3,7 +3,7 @@
 #define MOO_C_H
 
 // ------------------------------------------------------------
-// ---- moo.h - v1.1.1 ----------------------------------------
+// ---- moo.h - v1.2.0 ----------------------------------------
 // ------------------------------------------------------------
 // ---- MACROS for OBJECT ORIENTED-ness ( in C ) --------------
 // ------------------------------------------------------------
@@ -50,9 +50,12 @@
 //		* Finished built-in type: MOO_LIST_DEF
 // 2012-2-22 v1.0.1
 //		* Added documentation
-// 2012-10-23 v1.1.1
+// 2012-10-23 v1.1.0
 //		* Added STRUCT_END per the suggestion of Kenneth Perry,
 //			as the non-matching brackets messed with some IDEs.
+// 2012-10-23 v1.2.0
+//		* Fixed old version number: v1.1.1 -> v1.1.0
+//		* Modified moo.h to use STRUCT_END instead of };
 // ------------------------------------------------------------
 
 
@@ -161,7 +164,7 @@ do {																													\
 		T * item;						\
 		N##_node * previous;			\
 		N##_node * next;				\
-	};									\
+	STRUCT_END							\
 											\
 	void N##_node_init( N##_node * O ) {	\
 		O->item = NULL;						\
@@ -186,7 +189,7 @@ do {																													\
 												\
 		void (*push_back)( T * );				\
 		T * (*pop_back)();						\
-	};											\
+	STRUCT_END									\
 													\
 	N##_node * N##_get_node( unsigned int index ) {	\
 		unsigned int i = 0;							\
