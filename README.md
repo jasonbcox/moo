@@ -14,7 +14,6 @@ OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
 
 The goal of this library is to enable faster code
 development in C by providing the following:
-		* Function members for structs
-		* 'this' variable for function members
-		* A library-independent doubly-linked list structure
-			with basic functionality
+* Function members for structs
+* 'this' variable for function members
+* A library-independent doubly-linked list structure with basic functionality
